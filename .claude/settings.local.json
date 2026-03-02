@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:elraif.com)",
+      "Bash(npm run:*)",
+      "Bash(powershell:*)",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "Bash(mkdir:*)"
+    ]
+  }
+}
