@@ -34,8 +34,8 @@ export default function ContactPage() {
         </svg>
       ),
       label: t('contact.phone.label'),
-      value: '01005001624 – 01002951051',
-      href: 'tel:01005001624',
+      value: '01002951051 – 01005001624',
+      href: 'tel:01002951051',
     },
     {
       icon: (
@@ -44,8 +44,8 @@ export default function ContactPage() {
         </svg>
       ),
       label: t('contact.email.label'),
-      value: 'EELNADY@gmail.com',
-      href: 'mailto:EELNADY@gmail.com',
+      value: 'iselnady@gmail.com – EELNADY@gmail.com',
+      href: 'mailto:iselnady@gmail.com',
     },
     {
       icon: (
@@ -55,16 +55,6 @@ export default function ContactPage() {
       ),
       label: t('contact.hours.label'),
       value: t('contact.hours.value'),
-      href: null,
-    },
-    {
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      ),
-      label: t('contact.reg.label'),
-      value: t('contact.reg.value'),
       href: null,
     },
   ]
@@ -129,7 +119,7 @@ export default function ContactPage() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/201005001624"
+                href="https://wa.me/201002951051"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 w-full bg-green-500 hover:bg-green-400 text-white font-bold py-4 px-6 rounded-2xl transition-all hover:-translate-y-0.5 shadow-md"

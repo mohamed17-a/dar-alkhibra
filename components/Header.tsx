@@ -47,7 +47,7 @@ export default function Header() {
             </div>
             <div className="hidden sm:block">
               <p className="text-white font-bold text-base leading-tight">
-                {lang === 'ar' ? 'دار الخبرة' : 'Dar Al-Khebra'}
+                {lang === 'ar' ? 'دار الخبرة' : 'Dar Al-Khibra'}
               </p>
               <p className="text-gold text-xs leading-tight">
                 {lang === 'ar' ? 'للاستشارات المالية والقانونية' : 'Financial & Legal Consulting'}

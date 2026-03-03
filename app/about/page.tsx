@@ -70,7 +70,6 @@ export default function AboutPage() {
             {[
               { label: lang === 'ar' ? 'سنة التأسيس' : 'Established', value: '2000' },
               { label: lang === 'ar' ? 'سنوات الخبرة' : 'Years of Experience', value: '+25' },
-              { label: lang === 'ar' ? 'السجل التجاري' : 'Commercial Reg.', value: '115350' },
               { label: lang === 'ar' ? 'نوع الشركة' : 'Company Type', value: lang === 'ar' ? 'مساهمة مصرية' : 'Joint Stock' },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 text-center border border-gray-100 shadow-sm">

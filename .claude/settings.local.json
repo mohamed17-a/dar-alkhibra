@@ -6,7 +6,9 @@
       "Bash(powershell:*)",
       "Bash(python3:*)",
       "Bash(node:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(xargs sed:*)",
+      "Bash(do sed:*)"
     ]
   }
 }

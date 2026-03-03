@@ -222,8 +222,6 @@ const ar: Record<string, string> = {
   'contact.address.value': '27 شارع عبد الحميد عوض – مكرم عبيد – مدينة نصر – القاهرة',
   'contact.phone.label': 'الهاتف',
   'contact.email.label': 'البريد الإلكتروني',
-  'contact.reg.label': 'رقم السجل التجاري',
-  'contact.reg.value': '115350',
   'contact.hours.label': 'ساعات العمل',
   'contact.hours.value': 'السبت – الخميس: 9 ص – 5 م',
   'contact.form.name': 'الاسم الكامل',
@@ -304,10 +302,10 @@ const en: Record<string, string> = {
 
   // ── About page ───────────────────────────────────────────
   'about.heading': 'About Us',
-  'about.sub': 'Dar Al-Khebra for Financial and Legal Consultancy',
+  'about.sub': 'Dar Al-Khibra for Financial and Legal Consultancy',
   'about.company.type': 'Egyptian Joint Stock Company',
   'about.overview.heading': 'Company Overview',
-  'about.overview.p1': 'Dar Al-Khebra for Financial and Legal Consultancy was established to be one of the leading firms in the fields of accounting, auditing, taxation, and legal and commercial consultancy.',
+  'about.overview.p1': 'Dar Al-Khibra for Financial and Legal Consultancy was established to be one of the leading firms in the fields of accounting, auditing, taxation, and legal and commercial consultancy.',
   'about.overview.p2': 'Our services include company incorporation, amendments and liquidation, mergers & acquisitions, international arbitration, drafting of commercial contracts, trademark registration, banking facilities, and handling of general assembly procedures.',
   'about.overview.p3': 'Since its inception, the company has successfully built a strong reputation as a trusted strategic partner for startups, SMEs, and large enterprises by integrating both financial and legal services under one roof.',
   'about.vision.heading': 'Our Vision',
@@ -319,7 +317,7 @@ const en: Record<string, string> = {
   'about.track.industrial': 'Industrial Sector',
   'about.track.commercial': 'Commercial, Real Estate & Technology',
   'about.commitment.heading': 'Our Commitment',
-  'about.commitment.text': 'Dar Al-Khebra reaffirms its commitment to delivering integrated, professional services that support business growth and protect client interests through innovative solutions, strategic insight, and a specialized team — ensuring long-term partnerships built on trust, quality, and shared success.',
+  'about.commitment.text': 'Dar Al-Khibra reaffirms its commitment to delivering integrated, professional services that support business growth and protect client interests through innovative solutions, strategic insight, and a specialized team — ensuring long-term partnerships built on trust, quality, and shared success.',
 
   // ── Financial Services page ───────────────────────────────
   'financial.heading': 'Financial & Accounting Services',
@@ -450,7 +448,7 @@ const en: Record<string, string> = {
 
   // ── Team ─────────────────────────────────────────────────
   'team.heading': 'Leadership Team',
-  'team.sub': 'Certified financial and legal experts leading Dar Al-Khebra since its founding',
+  'team.sub': 'Certified financial and legal experts leading Dar Al-Khibra since its founding',
   'team.image.placeholder': 'Photo Coming Soon',
 
   // ── Glossary page ─────────────────────────────────────────
@@ -471,8 +469,6 @@ const en: Record<string, string> = {
   'contact.address.value': '27 Abdel Hamid Awad St. – Makram Ebeid – Nasr City – Cairo',
   'contact.phone.label': 'Phone',
   'contact.email.label': 'Email',
-  'contact.reg.label': 'Commercial Registration',
-  'contact.reg.value': '115350',
   'contact.hours.label': 'Working Hours',
   'contact.hours.value': 'Saturday – Thursday: 9 AM – 5 PM',
   'contact.form.name': 'Full Name',
@@ -489,7 +485,7 @@ const en: Record<string, string> = {
   'footer.links': 'Quick Links',
   'footer.contact': 'Contact',
   'footer.rights': 'All Rights Reserved',
-  'footer.company': 'Dar Al-Khebra for Financial and Legal Consultancy',
+  'footer.company': 'Dar Al-Khibra for Financial and Legal Consultancy',
 
   // ── Common ────────────────────────────────────────────────
   'common.learnmore': 'Learn More',
