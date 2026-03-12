@@ -34,7 +34,7 @@ export default function ContactPage() {
         </svg>
       ),
       label: t('contact.phone.label'),
-      value: '01002951051 – 01005001624',
+      value: '01002951051',
       href: 'tel:01002951051',
     },
     {
@@ -44,7 +44,7 @@ export default function ContactPage() {
         </svg>
       ),
       label: t('contact.email.label'),
-      value: 'iselnady@gmail.com – EELNADY@gmail.com',
+      value: 'iselnady@gmail.com',
       href: 'mailto:iselnady@gmail.com',
     },
     {

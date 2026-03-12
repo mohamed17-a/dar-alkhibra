@@ -89,12 +89,6 @@ const jsonLd = {
       contactType: 'customer service',
       availableLanguage: ['Arabic', 'English'],
     },
-    {
-      '@type': 'ContactPoint',
-      telephone: '+201005001624',
-      contactType: 'customer service',
-      availableLanguage: ['Arabic', 'English'],
-    },
   ],
   email: 'iselnady@gmail.com',
   sameAs: ['https://dar-alkhibra.vercel.app'],

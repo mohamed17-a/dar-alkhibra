@@ -37,23 +37,30 @@ export default function ValuesSection() {
   ]
 
   return (
-    <section className="py-20 bg-navy">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-navy relative overflow-hidden">
+      {/* subtle lime ambient glow in bg */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-10"
+        style={{
+          backgroundImage: `radial-gradient(circle at 50% 50%, rgba(209,236,81,0.25) 0%, transparent 65%)`,
+        }}
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 className="text-3xl font-bold text-white mb-4">{t('values.heading')}</h2>
-          <div className="w-16 h-1 bg-gold mx-auto rounded-full" />
+          <div className="w-16 h-1 bg-gradient-to-r from-gold to-lime mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {values.map((val, i) => (
             <div
               key={i}
-              className="group text-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/40 hover:bg-white/10 transition-all duration-300"
+              className="group text-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-lime/40 hover:bg-white/8 hover:glow-lime-sm transition-all duration-300"
             >
-              <div className="w-12 h-12 bg-gold/10 group-hover:bg-gold/20 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors">
-                <div className="text-gold">{valueIcons[i]}</div>
+              <div className="w-12 h-12 bg-gold/10 group-hover:bg-lime/10 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
+                <div className="text-gold group-hover:text-lime transition-colors duration-300">{valueIcons[i]}</div>
               </div>
-              <h3 className="text-white font-bold mb-2 text-base">{val.title}</h3>
+              <h3 className="text-white font-bold mb-2 text-base group-hover:text-lime transition-colors duration-300">{val.title}</h3>
               <p className="text-white/50 text-sm leading-relaxed">{val.desc}</p>
             </div>
           ))}

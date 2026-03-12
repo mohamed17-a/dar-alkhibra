@@ -51,10 +51,10 @@ export default function StatsBar() {
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="flex flex-col items-center text-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold/40 transition-colors"
+              className="group flex flex-col items-center text-center p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-lime/40 hover:glow-lime transition-all duration-300 cursor-default"
             >
-              <div className="text-gold mb-3">{stat.icon}</div>
-              <p className="text-4xl font-bold text-white mb-1">{stat.value}</p>
+              <div className="text-gold group-hover:text-lime transition-colors duration-300 mb-3">{stat.icon}</div>
+              <p className="text-4xl font-bold text-white group-hover:text-lime transition-colors duration-300 mb-1">{stat.value}</p>
               <p className="text-white/60 text-sm">{stat.label}</p>
             </div>
           ))}

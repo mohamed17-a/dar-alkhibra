@@ -7,9 +7,25 @@
   --color-gold: #C9A84C;
   --color-gold-light: #e0c270;
   --color-gold-dark: #a88730;
+  --color-lime: #d1ec51;
+  --color-lime-dark: #b8d43a;
   --color-warm-white: #FAFAF8;
   --color-cream: #F5F0E8;
   --font-sans: var(--font-cairo);
+}
+
+/* Glow utilities */
+.glow-lime {
+  box-shadow: 0 0 24px rgba(209, 236, 81, 0.25), 0 0 6px rgba(209, 236, 81, 0.15);
+}
+.glow-lime-sm {
+  box-shadow: 0 0 12px rgba(209, 236, 81, 0.2);
+}
+.glow-gold {
+  box-shadow: 0 0 24px rgba(201, 168, 76, 0.35), 0 0 6px rgba(201, 168, 76, 0.2);
+}
+.text-glow-lime {
+  text-shadow: 0 0 18px rgba(209, 236, 81, 0.6);
 }
 
 :root {

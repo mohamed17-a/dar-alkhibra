@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useLang } from '@/context/LanguageContext'
@@ -9,12 +9,23 @@ export default function Header() {
   const { lang, toggle, t } = useLang()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [servicesOpen, setServicesOpen] = useState(false)
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false)
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const desktopServicesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Close mobile menu on resize to desktop
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setMobileOpen(false)
+    }
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
   }, [])
 
   const serviceLinks = [
@@ -59,21 +70,22 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1">
             <Link
               href="/"
-              className="text-white/90 hover:text-gold px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
+              className="text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
             >
               {t('nav.home')}
             </Link>
 
             {/* Services dropdown */}
             <div
+              ref={desktopServicesRef}
               className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
+              onMouseEnter={() => setDesktopServicesOpen(true)}
+              onMouseLeave={() => setDesktopServicesOpen(false)}
             >
-              <button className="flex items-center gap-1 text-white/90 hover:text-gold px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5">
+              <button className="flex items-center gap-1 text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5">
                 {t('nav.services')}
                 <svg
-                  className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`}
+                  className={`w-4 h-4 transition-transform ${desktopServicesOpen ? 'rotate-180' : ''}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -82,7 +94,7 @@ export default function Header() {
                 </svg>
               </button>
 
-              {servicesOpen && (
+              {desktopServicesOpen && (
                 <div
                   className={`absolute top-full mt-1 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50 ${
                     lang === 'ar' ? 'right-0' : 'left-0'
@@ -92,6 +104,7 @@ export default function Header() {
                     <Link
                       key={link.href}
                       href={link.href}
+                      onClick={() => setDesktopServicesOpen(false)}
                       className="block px-4 py-3 text-sm text-navy hover:bg-cream hover:text-gold transition-colors"
                     >
                       {link.label}
@@ -100,6 +113,7 @@ export default function Header() {
                   <div className="border-t border-gray-100 mt-1 pt-1">
                     <Link
                       href="/services"
+                      onClick={() => setDesktopServicesOpen(false)}
                       className="block px-4 py-3 text-sm font-semibold text-gold hover:bg-cream transition-colors"
                     >
                       {t('services.all')} →
@@ -111,19 +125,19 @@ export default function Header() {
 
             <Link
               href="/about"
-              className="text-white/90 hover:text-gold px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
+              className="text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
             >
               {t('nav.about')}
             </Link>
             <Link
               href="/glossary"
-              className="text-white/90 hover:text-gold px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
+              className="text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
             >
               {lang === 'ar' ? 'المصطلحات' : 'Glossary'}
             </Link>
             <Link
               href="/contact"
-              className="text-white/90 hover:text-gold px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
+              className="text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
             >
               {t('nav.contact')}
             </Link>
@@ -132,26 +146,28 @@ export default function Header() {
           {/* Right side: Language toggle + mobile menu */}
           <div className="flex items-center gap-3">
             {/* Language Toggle */}
-            <div className="flex items-center bg-white/10 border border-white/20 rounded-full p-1">
+            <div className="flex items-center bg-white/10 border border-white/20 rounded-full p-1 shrink-0">
               <button
                 onClick={() => lang !== 'ar' && toggle()}
-                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+                className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
                   lang === 'ar'
                     ? 'bg-gold text-navy shadow-sm'
                     : 'text-white/60 hover:text-white'
                 }`}
               >
-                العربية
+                <span className="hidden sm:inline">العربية</span>
+                <span className="sm:hidden">ع</span>
               </button>
               <button
                 onClick={() => lang !== 'en' && toggle()}
-                className={`px-3 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+                className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
                   lang === 'en'
                     ? 'bg-gold text-navy shadow-sm'
                     : 'text-white/60 hover:text-white'
                 }`}
               >
-                English
+                <span className="hidden sm:inline">English</span>
+                <span className="sm:hidden">EN</span>
               </button>
             </div>
 
@@ -174,24 +190,28 @@ export default function Header() {
       </div>
 
       {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-navy-dark border-t border-white/10 px-4 py-4">
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+          mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="bg-navy border-t border-white/10 px-4 py-2">
           <Link
             href="/"
             onClick={() => setMobileOpen(false)}
-            className="block text-white/90 hover:text-gold py-3 text-base font-medium border-b border-white/10"
+            className="block text-white/90 hover:text-lime py-3 text-base font-medium border-b border-white/10 transition-colors"
           >
             {t('nav.home')}
           </Link>
 
           <div className="border-b border-white/10">
             <button
-              onClick={() => setServicesOpen(!servicesOpen)}
-              className="flex items-center justify-between w-full text-white/90 hover:text-gold py-3 text-base font-medium"
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className="flex items-center justify-between w-full text-white/90 hover:text-lime py-3 text-base font-medium transition-colors"
             >
               {t('nav.services')}
               <svg
-                className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`}
+                className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -199,45 +219,56 @@ export default function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            {servicesOpen && (
-              <div className="pb-2 ps-4">
+            <div
+              className={`overflow-hidden transition-all duration-200 ${
+                mobileServicesOpen ? 'max-h-48 pb-2' : 'max-h-0'
+              }`}
+            >
+              <div className="ps-4">
                 {serviceLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block text-white/70 hover:text-gold py-2 text-sm"
+                    onClick={() => { setMobileOpen(false); setMobileServicesOpen(false) }}
+                    className="block text-white/70 hover:text-lime py-2 text-sm transition-colors"
                   >
                     — {link.label}
                   </Link>
                 ))}
+                <Link
+                  href="/services"
+                  onClick={() => { setMobileOpen(false); setMobileServicesOpen(false) }}
+                  className="block text-gold/80 hover:text-gold py-2 text-sm font-semibold transition-colors"
+                >
+                  {t('services.all')} →
+                </Link>
               </div>
-            )}
+            </div>
           </div>
 
           <Link
             href="/about"
             onClick={() => setMobileOpen(false)}
-            className="block text-white/90 hover:text-gold py-3 text-base font-medium border-b border-white/10"
+            className="block text-white/90 hover:text-lime py-3 text-base font-medium border-b border-white/10 transition-colors"
           >
             {t('nav.about')}
           </Link>
           <Link
             href="/glossary"
             onClick={() => setMobileOpen(false)}
-            className="block text-white/90 hover:text-gold py-3 text-base font-medium border-b border-white/10"
+            className="block text-white/90 hover:text-lime py-3 text-base font-medium border-b border-white/10 transition-colors"
           >
             {lang === 'ar' ? 'المصطلحات' : 'Glossary'}
           </Link>
           <Link
             href="/contact"
             onClick={() => setMobileOpen(false)}
-            className="block text-white/90 hover:text-gold py-3 text-base font-medium"
+            className="block text-white/90 hover:text-lime py-3 text-base font-medium transition-colors"
           >
             {t('nav.contact')}
           </Link>
         </div>
-      )}
+      </div>
     </header>
   )
 }
