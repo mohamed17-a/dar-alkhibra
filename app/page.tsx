@@ -1,6 +1,8 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import StatsBar from '@/components/StatsBar'
@@ -8,6 +10,12 @@ import ServiceCard from '@/components/ServiceCard'
 import ValuesSection from '@/components/ValuesSection'
 import MapEmbed from '@/components/MapEmbed'
 import { useLang } from '@/context/LanguageContext'
+
+const heroSlides = [
+  '/hero/office-1.jpg',
+  '/hero/office-2.jpg',
+  '/hero/office-3.jpg',
+]
 
 const financialIcon = (
   <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -27,22 +35,70 @@ const consultingIcon = (
 
 export default function HomePage() {
   const { t, lang } = useLang()
+  const [slide, setSlide] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSlide((s) => (s + 1) % heroSlides.length)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <>
       <Header />
 
-      {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative min-h-screen bg-navy flex items-center overflow-hidden">
+      {/* ── Hero Slideshow ────────────────────────────────── */}
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-navy">
+
+        {/* Slide images — crossfade */}
+        {heroSlides.map((src, i) => (
+          <div
+            key={src}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              i === slide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              className="object-cover object-center"
+              priority={i === 0}
+              sizes="100vw"
+            />
+          </div>
+        ))}
+
+        {/* Primary overlay: strong navy gradient — ensures text contrast over any bright photo */}
         <div
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 z-10"
           style={{
-            backgroundImage: `radial-gradient(circle at 20% 50%, rgba(201,168,76,0.4) 0%, transparent 50%),
-                              radial-gradient(circle at 80% 20%, rgba(201,168,76,0.2) 0%, transparent 40%),
-                              radial-gradient(circle at 70% 80%, rgba(209,236,81,0.15) 0%, transparent 40%)`,
+            background: lang === 'ar'
+              ? 'linear-gradient(to left, rgba(17,29,66,0.93) 0%, rgba(17,29,66,0.80) 45%, rgba(17,29,66,0.45) 100%)'
+              : 'linear-gradient(to right, rgba(17,29,66,0.93) 0%, rgba(17,29,66,0.80) 45%, rgba(17,29,66,0.45) 100%)',
           }}
         />
-        <div className="absolute inset-0 opacity-5">
+
+        {/* Secondary overlay: bottom-up vignette for scroll-cue area */}
+        <div
+          className="absolute inset-0 z-10"
+          style={{
+            background: 'linear-gradient(to top, rgba(17,29,66,0.7) 0%, transparent 35%)',
+          }}
+        />
+
+        {/* Color accent blobs */}
+        <div
+          className="absolute inset-0 z-10 opacity-25"
+          style={{
+            backgroundImage: `radial-gradient(circle at 15% 60%, rgba(201,168,76,0.35) 0%, transparent 45%),
+                              radial-gradient(circle at 70% 85%, rgba(209,236,81,0.12) 0%, transparent 38%)`,
+          }}
+        />
+
+        {/* Grid texture */}
+        <div className="absolute inset-0 z-10 opacity-4">
           <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -52,9 +108,12 @@ export default function HomePage() {
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
         </div>
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold via-gold-light to-gold" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 pt-40">
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-gold via-gold-light to-gold z-20" />
+
+        {/* Content */}
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 pt-40">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold px-4 py-2 rounded-full text-sm font-medium mb-8">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
@@ -68,7 +127,7 @@ export default function HomePage() {
               <span className="block text-gold mt-2">{t('hero.title2')}</span>
             </h1>
 
-            <p className="text-white/70 text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl">
+            <p className="text-white/80 text-lg sm:text-xl leading-relaxed mb-10 max-w-2xl">
               {t('hero.subtitle')}
             </p>
 
@@ -91,13 +150,13 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-wrap gap-6 mt-14 pt-10 border-t border-white/10">
-              <a href="tel:01002951051" className="flex items-center gap-2 text-white/60 hover:text-gold transition-colors text-sm">
+              <a href="tel:01002951051" className="flex items-center gap-2 text-white/70 hover:text-gold transition-colors text-sm">
                 <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 01002951051
               </a>
-              <a href="mailto:iselnady@gmail.com" className="flex items-center gap-2 text-white/60 hover:text-gold transition-colors text-sm">
+              <a href="mailto:iselnady@gmail.com" className="flex items-center gap-2 text-white/70 hover:text-gold transition-colors text-sm">
                 <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -107,7 +166,24 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/40 animate-bounce">
+        {/* Slide dot indicators */}
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setSlide(i)}
+              aria-label={`Slide ${i + 1}`}
+              className={`transition-all duration-300 rounded-full ${
+                i === slide
+                  ? 'w-8 h-2 bg-gold'
+                  : 'w-2 h-2 bg-white/40 hover:bg-white/70'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Scroll cue */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-white/40 animate-bounce">
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>

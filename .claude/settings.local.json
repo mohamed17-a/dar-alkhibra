@@ -8,7 +8,8 @@
       "Bash(node:*)",
       "Bash(mkdir:*)",
       "Bash(xargs sed:*)",
-      "Bash(do sed:*)"
+      "Bash(do sed:*)",
+      "Bash(mkdir -p \"D:/FE projects/dar-alkhibra/public/hero\" && cp \"/c/Users/moham/Downloads/pexels-artbovich-7534168.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/office-1.jpg\" && cp \"/c/Users/moham/Downloads/pexels-artbovich-7534234.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/office-2.jpg\" && cp \"/c/Users/moham/Downloads/pexels-artbovich-7534172.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/office-3.jpg\" && echo \"Done\")"
     ]
   }
 }
