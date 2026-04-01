@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import PageHero from '@/components/PageHero'
 import { useLang } from '@/context/LanguageContext'
 
 function ServiceBlock({ title, items, icon }: { title: string; items: string[]; icon: React.ReactNode }) {
@@ -70,28 +71,19 @@ export default function FinancialPage() {
     <>
       <Header />
 
-      <section className="bg-navy pt-36 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <svg className="absolute inset-0 w-full h-full">
-            <defs>
-              <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </div>
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/services" className="inline-flex items-center gap-2 text-white/50 hover:text-gold text-sm mb-8 transition-colors rtl:flex-row-reverse">
-            <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            {t('services.all')}
-          </Link>
-          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-5">{t('financial.heading')}</h1>
-          <p className="text-white/70 text-xl leading-relaxed">{t('financial.sub')}</p>
-        </div>
-      </section>
+      <PageHero
+        image="business"
+        keywordAr="مالية"
+        keywordEn="Finance"
+        headingAr={t('financial.heading')}
+        headingEn={t('financial.heading')}
+        subtitleAr={t('financial.sub')}
+        subtitleEn={t('financial.sub')}
+        backHref="/services"
+        backLabelAr={t('services.all')}
+        backLabelEn={t('services.all')}
+        lang={lang}
+      />
 
       <section className="py-20 bg-warm-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

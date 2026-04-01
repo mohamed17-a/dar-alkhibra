@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-navy: #1B2B5E;
-  --color-navy-dark: #111d42;
-  --color-navy-light: #2a3f7e;
+  --color-navy: #1A3A6B;
+  --color-navy-dark: #122B52;
+  --color-navy-light: #265494;
   --color-gold: #C9A84C;
   --color-gold-light: #e0c270;
   --color-gold-dark: #a88730;
@@ -30,7 +30,7 @@
 
 :root {
   --background: #FAFAF8;
-  --foreground: #1a1a2e;
+  --foreground: #1A3A6B;
 }
 
 * {

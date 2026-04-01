@@ -19,7 +19,6 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth >= 1024) setMobileOpen(false)
@@ -28,64 +27,69 @@ export default function Header() {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (desktopServicesRef.current && !desktopServicesRef.current.contains(e.target as Node)) {
+        setDesktopServicesOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handler)
+    return () => document.removeEventListener('mousedown', handler)
+  }, [])
+
   const serviceLinks = [
-    { href: '/services/financial', label: t('nav.services.financial') },
-    { href: '/services/legal', label: t('nav.services.legal') },
+    { href: '/services/financial', label: t('nav.services.audit') },
     { href: '/services/consulting', label: t('nav.services.consulting') },
+    { href: '/contact', label: t('nav.services.private') },
+    { href: '/services/financial', label: t('nav.services.advisory') },
+    { href: '/services/legal', label: t('nav.services.legal') },
+    { href: '/services/financial', label: t('nav.services.tax') },
   ]
 
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-navy shadow-lg shadow-navy/20'
-          : 'bg-navy/95 backdrop-blur-sm'
+        scrolled ? 'shadow-[0_4px_40px_rgba(0,5,32,0.25)]' : ''
       }`}
+      style={{
+        background: scrolled ? 'rgba(26, 58, 107, 0.95)' : 'rgba(26, 58, 107, 0.80)',
+        backdropFilter: 'blur(16px)',
+        WebkitBackdropFilter: 'blur(16px)',
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 shrink-0">
-            <div className="w-14 h-14 relative">
-              <Image
-                src="/logo.png"
-                alt="دار الخبرة"
-                fill
-                className="object-contain"
-                priority
-              />
+            <div className="w-11 h-11 relative">
+              <Image src="/logo.png" alt="دار الخبرة" fill className="object-contain" priority />
             </div>
             <div className="hidden sm:block">
               <p className="text-white font-bold text-base leading-tight">
                 {lang === 'ar' ? 'دار الخبرة' : 'Dar Al-Khibra'}
               </p>
-              <p className="text-gold text-xs leading-tight">
-                {lang === 'ar' ? 'للاستشارات المالية والقانونية' : 'Financial & Legal Consulting'}
+              <p className="text-gold text-xs leading-tight opacity-80">
+                {lang === 'ar' ? 'المالية • القانونية • الضريبية' : 'Financial • Legal • Tax'}
               </p>
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
-            <Link
-              href="/"
-              className="text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
-            >
+          <nav className="hidden lg:flex items-center gap-0.5">
+            <Link href="/" className="text-white/70 hover:text-white px-4 py-2 text-base transition-colors">
               {t('nav.home')}
             </Link>
 
             {/* Services dropdown */}
-            <div
-              ref={desktopServicesRef}
-              className="relative"
-              onMouseEnter={() => setDesktopServicesOpen(true)}
-              onMouseLeave={() => setDesktopServicesOpen(false)}
-            >
-              <button className="flex items-center gap-1 text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5">
+            <div ref={desktopServicesRef} className="relative">
+              <button
+                onClick={() => setDesktopServicesOpen((v) => !v)}
+                className="flex items-center gap-1 text-white/70 hover:text-white px-4 py-2 text-base transition-colors"
+              >
                 {t('nav.services')}
                 <svg
-                  className={`w-4 h-4 transition-transform ${desktopServicesOpen ? 'rotate-180' : ''}`}
+                  className={`w-3 h-3 transition-transform duration-200 ${desktopServicesOpen ? 'rotate-180' : ''}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -93,66 +97,44 @@ export default function Header() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-
               {desktopServicesOpen && (
                 <div
-                  className={`absolute top-full mt-1 w-64 bg-white rounded-xl shadow-xl border border-gray-100 py-2 z-50 ${
-                    lang === 'ar' ? 'right-0' : 'left-0'
-                  }`}
+                  className="absolute top-full mt-2 w-60 rounded-md overflow-hidden"
+                  style={{ background: '#fbfbe2', boxShadow: '0 10px 40px rgba(0,5,32,0.14)' }}
                 >
                   {serviceLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setDesktopServicesOpen(false)}
-                      className="block px-4 py-3 text-sm text-navy hover:bg-cream hover:text-gold transition-colors"
+                      className="block px-5 py-3 text-sm text-navy/70 hover:text-navy hover:bg-cream transition-colors"
                     >
                       {link.label}
                     </Link>
                   ))}
-                  <div className="border-t border-gray-100 mt-1 pt-1">
-                    <Link
-                      href="/services"
-                      onClick={() => setDesktopServicesOpen(false)}
-                      className="block px-4 py-3 text-sm font-semibold text-gold hover:bg-cream transition-colors"
-                    >
-                      {t('services.all')} →
-                    </Link>
-                  </div>
                 </div>
               )}
             </div>
 
-            <Link
-              href="/about"
-              className="text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
-            >
+            <Link href="/about" className="text-white/70 hover:text-white px-4 py-2 text-base transition-colors">
               {t('nav.about')}
             </Link>
             <Link
-              href="/glossary"
-              className="text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
-            >
-              {lang === 'ar' ? 'المصطلحات' : 'Glossary'}
-            </Link>
-            <Link
               href="/contact"
-              className="text-white/90 hover:text-lime px-4 py-2 text-sm font-medium transition-colors rounded-md hover:bg-white/5"
+              className="ms-3 bg-gold hover:bg-gold-light text-navy text-sm font-bold px-5 py-2 rounded-md transition-colors"
             >
               {t('nav.contact')}
             </Link>
           </nav>
 
-          {/* Right side: Language toggle + mobile menu */}
+          {/* Right side: lang toggle + hamburger */}
           <div className="flex items-center gap-3">
             {/* Language Toggle */}
-            <div className="flex items-center bg-white/10 border border-white/20 rounded-full p-1 shrink-0">
+            <div className="flex items-center rounded-md overflow-hidden" style={{ background: 'rgba(255,255,255,0.1)' }}>
               <button
                 onClick={() => lang !== 'ar' && toggle()}
-                className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                  lang === 'ar'
-                    ? 'bg-gold text-navy shadow-sm'
-                    : 'text-white/60 hover:text-white'
+                className={`px-3 py-1.5 text-xs font-medium transition-all ${
+                  lang === 'ar' ? 'bg-gold text-navy' : 'text-white/60 hover:text-white'
                 }`}
               >
                 <span className="hidden sm:inline">العربية</span>
@@ -160,10 +142,8 @@ export default function Header() {
               </button>
               <button
                 onClick={() => lang !== 'en' && toggle()}
-                className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
-                  lang === 'en'
-                    ? 'bg-gold text-navy shadow-sm'
-                    : 'text-white/60 hover:text-white'
+                className={`px-3 py-1.5 text-xs font-medium transition-all ${
+                  lang === 'en' ? 'bg-gold text-navy' : 'text-white/60 hover:text-white'
                 }`}
               >
                 <span className="hidden sm:inline">English</span>
@@ -171,13 +151,13 @@ export default function Header() {
               </button>
             </div>
 
-            {/* Mobile hamburger */}
+            {/* Hamburger */}
             <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden text-white p-2 hover:bg-white/10 rounded-md transition-colors"
+              className="lg:hidden text-white/80 hover:text-white p-1.5"
+              onClick={() => setMobileOpen((v) => !v)}
               aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -191,27 +171,34 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+        className={`lg:hidden overflow-hidden transition-all duration-300 ${
           mobileOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}
       >
-        <div className="bg-navy border-t border-white/10 px-4 py-2">
+        <nav
+          className="px-4 py-4 space-y-0.5"
+          style={{
+            background: 'rgba(0, 5, 32, 0.96)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+          }}
+        >
           <Link
             href="/"
             onClick={() => setMobileOpen(false)}
-            className="block text-white/90 hover:text-lime py-3 text-base font-medium border-b border-white/10 transition-colors"
+            className="block text-white/70 hover:text-white py-2.5 text-sm"
           >
             {t('nav.home')}
           </Link>
 
-          <div className="border-b border-white/10">
+          <div>
             <button
-              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-              className="flex items-center justify-between w-full text-white/90 hover:text-lime py-3 text-base font-medium transition-colors"
+              onClick={() => setMobileServicesOpen((v) => !v)}
+              className="w-full flex items-center justify-between text-white/70 hover:text-white py-2.5 text-sm"
             >
               {t('nav.services')}
               <svg
-                className={`w-4 h-4 transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
+                className={`w-3.5 h-3.5 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -219,55 +206,35 @@ export default function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            <div
-              className={`overflow-hidden transition-all duration-200 ${
-                mobileServicesOpen ? 'max-h-48 pb-2' : 'max-h-0'
-              }`}
-            >
-              <div className="ps-4">
+            {mobileServicesOpen && (
+              <div className="ps-4 pb-1 space-y-0.5">
                 {serviceLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    onClick={() => { setMobileOpen(false); setMobileServicesOpen(false) }}
-                    className="block text-white/70 hover:text-lime py-2 text-sm transition-colors"
+                    onClick={() => setMobileOpen(false)}
+                    className="block text-white/50 hover:text-gold py-2 text-sm"
                   >
-                    — {link.label}
+                    {link.label}
                   </Link>
                 ))}
-                <Link
-                  href="/services"
-                  onClick={() => { setMobileOpen(false); setMobileServicesOpen(false) }}
-                  className="block text-gold/80 hover:text-gold py-2 text-sm font-semibold transition-colors"
-                >
-                  {t('services.all')} →
-                </Link>
               </div>
-            </div>
+            )}
           </div>
 
-          <Link
-            href="/about"
-            onClick={() => setMobileOpen(false)}
-            className="block text-white/90 hover:text-lime py-3 text-base font-medium border-b border-white/10 transition-colors"
-          >
+          <Link href="/about" onClick={() => setMobileOpen(false)} className="block text-white/70 hover:text-white py-2.5 text-sm">
             {t('nav.about')}
           </Link>
-          <Link
-            href="/glossary"
-            onClick={() => setMobileOpen(false)}
-            className="block text-white/90 hover:text-lime py-3 text-base font-medium border-b border-white/10 transition-colors"
-          >
-            {lang === 'ar' ? 'المصطلحات' : 'Glossary'}
-          </Link>
-          <Link
-            href="/contact"
-            onClick={() => setMobileOpen(false)}
-            className="block text-white/90 hover:text-lime py-3 text-base font-medium transition-colors"
-          >
-            {t('nav.contact')}
-          </Link>
-        </div>
+          <div className="pt-2">
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="block bg-gold text-navy font-bold py-2.5 px-4 rounded-md text-sm text-center"
+            >
+              {t('nav.contact')}
+            </Link>
+          </div>
+        </nav>
       </div>
     </header>
   )

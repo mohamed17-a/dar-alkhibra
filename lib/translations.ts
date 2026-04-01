@@ -7,8 +7,36 @@ const ar: Record<string, string> = {
   'nav.services.financial': 'الخدمات المالية والمحاسبية',
   'nav.services.legal': 'الخدمات القانونية',
   'nav.services.consulting': 'الاستشارات المتكاملة',
+  'nav.services.audit': 'المراجعة والتدقيق',
+  'nav.services.advisory': 'الاستشارات المالية',
+  'nav.services.tax': 'الخدمات الضريبية',
+  'nav.services.private': 'خدمات العملاء الخاصة',
   'nav.about': 'من نحن',
   'nav.contact': 'تواصل معنا',
+  'nav.insights': 'رؤى وتحليلات',
+  'nav.glossary': 'المصطلحات',
+
+  // ── Why Choose Us ────────────────────────────────────────
+  'why.heading': 'لماذا تختارنا؟',
+  'why.sub': 'نجمع بين الخبرة الماليةوالقانونية والضريبية تحت مظلة واحدة لخدمة عملائنا بامتياز',
+  'why.1.title': 'الخبرة المتخصصة',
+  'why.1.desc': 'فريق من المحاسبين القانونيين والمستشارين الماليين والقانونيين المعتمدين بخبرة تتجاوز 25 عامًا في السوق المصري',
+  'why.2.title': 'الشمولية والتكامل',
+  'why.2.desc': 'نقدم خدمات مالية ومحاسبية وقانونية وضريبية متكاملة تغطي جميع احتياجات أعمالكم تحت سقف واحد',
+  'why.3.title': 'المعرفة التنظيمية العميقة',
+  'why.3.desc': 'فهم شامل ودقيق للبيئة الضريبية والقانونية المصرية ومتطلبات الامتثال المحلية والدولية',
+  'why.4.title': 'الحلول المبتكرة',
+  'why.4.desc': 'نطوّر حلولاً مالية وقانونية مخصصة تلبي الاحتياجات الفريدة لكل عميل وتدعم استدامة نموه',
+
+  // ── Services extended ────────────────────────────────────
+  'services.audit.title': 'المراجعة والتدقيق',
+  'services.audit.desc': 'خدمات تدقيق مالي وفق أعلى المعايير المهنية — مراجعة القوائم المالية، تقارير للبنوك والمستثمرين، وتدقيق شركات المساهمة',
+  'services.advisory.title': 'الاستشارات المالية',
+  'services.advisory.desc': 'استشارات مالية استراتيجية تشمل دراسات الجدوى وتقييم الشركات والأصول والتخطيط المالي طويل المدى',
+  'services.tax.title': 'الخدمات الضريبية',
+  'services.tax.desc': 'إعداد الإقرارات الضريبية، تسوية المنازعات مع مصلحة الضرائب، والتخطيط الضريبي لتحسين الالتزام وتقليل الأعباء',
+  'services.private.title': 'خدمات العملاء الخاصة',
+  'services.private.desc': 'حلول متكاملة للأفراد وأصحاب الثروات تشمل إدارة الأصول وتخطيط التركات والاستشارات الضريبية الشخصية',
 
   // ── Hero ────────────────────────────────────────────────
   'hero.badge': 'شركة مساهمة مصرية — تأسست عام 2000',
@@ -23,7 +51,7 @@ const ar: Record<string, string> = {
   'stats.years.label': 'سنة خبرة',
   'stats.clients': '+700',
   'stats.clients.label': 'عميل وشركة',
-  'stats.services': '3',
+  'stats.services': '6',
   'stats.services.label': 'مجالات خدمية',
   'stats.founded': '2000',
   'stats.founded.label': 'سنة التأسيس',
@@ -245,6 +273,19 @@ const ar: Record<string, string> = {
   'common.contactus': 'تواصل معنا',
   'common.back': 'رجوع',
   'common.founded': 'تأسست عام',
+
+  // ── Insights page ─────────────────────────────────────────
+  'insights.heading': 'رؤى وتحليلات',
+  'insights.sub': 'تحليلات متعمقة وتحديثات قانونية ومالية من خبراء دار الخبرة',
+  'insights.read': 'اقرأ المقال',
+  'insights.featured': 'المقال المميز',
+  'insights.latest': 'آخر التحليلات',
+  'insights.category.tax': 'ضريبي',
+  'insights.category.legal': 'قانوني',
+  'insights.category.accounting': 'محاسبة',
+  'insights.category.investment': 'استثمار',
+  'insights.minutes': 'دقائق للقراءة',
+  'insights.viewall': 'جميع المقالات',
 }
 
 const en: Record<string, string> = {
@@ -254,8 +295,36 @@ const en: Record<string, string> = {
   'nav.services.financial': 'Financial & Accounting',
   'nav.services.legal': 'Legal Services',
   'nav.services.consulting': 'Integrated Consulting',
+  'nav.services.audit': 'Audit & Assurance',
+  'nav.services.advisory': 'Financial Advisory',
+  'nav.services.tax': 'Tax',
+  'nav.services.private': 'Private Client Services',
   'nav.about': 'About Us',
   'nav.contact': 'Contact Us',
+  'nav.insights': 'Insights',
+  'nav.glossary': 'Glossary',
+
+  // ── Why Choose Us ────────────────────────────────────────
+  'why.heading': 'Why Choose Us?',
+  'why.sub': 'We combine financial, legal and tax expertise under one roof to serve our clients with excellence',
+  'why.1.title': 'Specialized Expertise',
+  'why.1.desc': 'A team of certified accountants and financial & legal consultants with over 25 years of experience in the Egyptian market',
+  'why.2.title': 'Comprehensive Coverage',
+  'why.2.desc': 'We deliver integrated financial, accounting, legal and tax services covering every aspect of your business under one roof',
+  'why.3.title': 'Deep Regulatory Knowledge',
+  'why.3.desc': 'A thorough understanding of Egypt\'s tax and legal environment, local and international compliance requirements',
+  'why.4.title': 'Innovative Solutions',
+  'why.4.desc': 'We develop tailored financial and legal solutions that meet each client\'s unique needs and support sustainable growth',
+
+  // ── Services extended ────────────────────────────────────
+  'services.audit.title': 'Audit & Assurance',
+  'services.audit.desc': 'Financial auditing to the highest professional standards — review of financial statements, reports for banks and investors, and joint stock company auditing',
+  'services.advisory.title': 'Financial Advisory',
+  'services.advisory.desc': 'Strategic financial advisory including feasibility studies, company and asset valuation, and long-term financial planning',
+  'services.tax.title': 'Tax',
+  'services.tax.desc': 'Tax return preparation, dispute resolution with tax authorities, and tax planning to optimize compliance and reduce burdens',
+  'services.private.title': 'Private Client Services',
+  'services.private.desc': 'Integrated solutions for individuals and HNW clients including asset management, estate planning and personal tax advisory',
 
   // ── Hero ────────────────────────────────────────────────
   'hero.badge': 'Egyptian Joint Stock Company — Est. 2000',
@@ -270,7 +339,7 @@ const en: Record<string, string> = {
   'stats.years.label': 'Years of Expertise',
   'stats.clients': '700+',
   'stats.clients.label': 'Clients Served',
-  'stats.services': '3',
+  'stats.services': '6',
   'stats.services.label': 'Service Areas',
   'stats.founded': '2000',
   'stats.founded.label': 'Year Founded',
@@ -492,6 +561,19 @@ const en: Record<string, string> = {
   'common.contactus': 'Contact Us',
   'common.back': 'Back',
   'common.founded': 'Est.',
+
+  // ── Insights page ─────────────────────────────────────────
+  'insights.heading': 'Insights & Analysis',
+  'insights.sub': 'In-depth analysis and updates on law, finance, and business from Dar Al-Khibra experts',
+  'insights.read': 'Read Article',
+  'insights.featured': 'Featured Article',
+  'insights.latest': 'Latest Insights',
+  'insights.category.tax': 'Tax',
+  'insights.category.legal': 'Legal',
+  'insights.category.accounting': 'Accounting',
+  'insights.category.investment': 'Investment',
+  'insights.minutes': 'min read',
+  'insights.viewall': 'View All Articles',
 }
 
 export const translations: Record<string, Record<string, string>> = { ar, en }

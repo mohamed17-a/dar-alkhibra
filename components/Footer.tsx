@@ -11,25 +11,25 @@ export default function Footer() {
   return (
     <footer className="bg-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-14">
 
           {/* Brand */}
-          <div className="space-y-4">
+          <div className="space-y-5">
             <div className="flex items-center gap-3">
-              <div className="w-14 h-14 relative shrink-0">
+              <div className="w-11 h-11 relative shrink-0">
                 <Image src="/logo.png" alt="دار الخبرة" fill className="object-contain" />
               </div>
               <div>
-                <p className="font-bold text-white text-base">
+                <p className="font-bold text-white text-sm">
                   {lang === 'ar' ? 'دار الخبرة' : 'Dar Al-Khibra'}
                 </p>
-                <p className="text-gold text-xs">
-                  {lang === 'ar' ? 'للاستشارات المالية والقانونية' : 'Financial & Legal Consulting'}
+                <p className="text-gold/70 text-xs mt-0.5">
+                  {lang === 'ar' ? 'المالية • القانونية • الضريبية' : 'Financial • Legal • Tax'}
                 </p>
               </div>
             </div>
             <p className="text-white/60 text-sm leading-relaxed">{t('footer.desc')}</p>
-            <div className="flex gap-3 pt-2">
+            <div className="flex gap-2.5">
               <a
                 href="https://wa.me/201002951051"
                 target="_blank"
@@ -43,7 +43,7 @@ export default function Footer() {
               </a>
               <a
                 href="mailto:iselnady@gmail.com"
-                className="w-9 h-9 bg-white/10 hover:bg-lime rounded-full flex items-center justify-center transition-colors"
+                className="w-9 h-9 bg-white/10 hover:bg-gold rounded-full flex items-center justify-center transition-colors"
                 aria-label="Email"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,25 +55,18 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-gold font-semibold mb-5 text-sm uppercase tracking-wider">
-              {t('footer.links')}
-            </h3>
+            <h3 className="text-gold font-semibold mb-4 text-sm">{t('footer.links')}</h3>
             <ul className="space-y-3">
               {[
                 { href: '/', label: t('nav.home') },
                 { href: '/about', label: t('nav.about') },
-                { href: '/services', label: t('nav.services') },
                 { href: '/services/financial', label: t('nav.services.financial') },
                 { href: '/services/legal', label: t('nav.services.legal') },
                 { href: '/services/consulting', label: t('nav.services.consulting') },
                 { href: '/contact', label: t('nav.contact') },
-                { href: '/glossary', label: lang === 'ar' ? 'مسرد المصطلحات' : 'Glossary' },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-white/60 hover:text-lime text-sm transition-colors"
-                  >
+                  <Link href={link.href} className="text-white/60 hover:text-lime text-sm transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -83,12 +76,10 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-gold font-semibold mb-5 text-sm uppercase tracking-wider">
-              {t('footer.contact')}
-            </h3>
+            <h3 className="text-gold font-semibold mb-4 text-sm">{t('footer.contact')}</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <svg className="w-4 h-4 text-gold mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
@@ -98,24 +89,19 @@ export default function Footer() {
                 <svg className="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <div className="text-white/60 text-sm">
-                  <a href="tel:01002951051" className="hover:text-lime block transition-colors">01002951051</a>
-                </div>
+                <a href="tel:01002951051" className="text-white/60 hover:text-gold text-sm transition-colors">01002951051</a>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-4 h-4 text-gold shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <div className="text-sm">
-                  <a href="mailto:iselnady@gmail.com" className="text-white/60 hover:text-lime block transition-colors">iselnady@gmail.com</a>
-                </div>
+                <a href="mailto:iselnady@gmail.com" className="text-white/60 hover:text-gold text-sm transition-colors">iselnady@gmail.com</a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-white/40">
+        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
           <p>© {currentYear} {t('footer.company')} — {t('footer.rights')}</p>
         </div>
       </div>
