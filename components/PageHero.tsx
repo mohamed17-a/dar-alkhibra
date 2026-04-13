@@ -55,7 +55,7 @@ export default function PageHero({
       <Image src={src} alt="" fill className="object-cover object-center" priority />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 z-10" style={{ background: 'rgba(17,29,66,0.88)' }} />
+      <div className="absolute inset-0 z-10" style={{ background: 'rgba(10,10,10,0.82)' }} />
 
       {/* Watermark keyword */}
       <div className="absolute inset-0 z-10 flex items-center overflow-hidden pointer-events-none pe-6 ps-6">

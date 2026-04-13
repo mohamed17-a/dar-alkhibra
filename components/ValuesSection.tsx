@@ -36,7 +36,7 @@ export default function ValuesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-white mb-3">{t('values.heading')}</h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-gold to-lime mx-auto" />
+          <div className="w-16 h-1 bg-gradient-to-r from-gold to-lime mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">

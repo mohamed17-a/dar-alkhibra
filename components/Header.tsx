@@ -49,12 +49,12 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? 'shadow-[0_4px_40px_rgba(0,5,32,0.25)]' : ''
+        scrolled ? 'shadow-[0_4px_40px_rgba(0,0,0,0.35)]' : ''
       }`}
       style={{
-        background: scrolled ? 'rgba(26, 58, 107, 0.95)' : 'rgba(26, 58, 107, 0.80)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
+        background: scrolled ? 'rgba(43, 48, 58, 0.97)' : 'rgba(43, 48, 58, 0.82)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)',
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -100,7 +100,7 @@ export default function Header() {
               {desktopServicesOpen && (
                 <div
                   className="absolute top-full mt-2 w-60 rounded-md overflow-hidden"
-                  style={{ background: '#fbfbe2', boxShadow: '0 10px 40px rgba(0,5,32,0.14)' }}
+                  style={{ background: '#F4F6F0', boxShadow: '0 10px 40px rgba(0,0,0,0.20)' }}
                 >
                   {serviceLinks.map((link) => (
                     <Link
@@ -121,7 +121,7 @@ export default function Header() {
             </Link>
             <Link
               href="/contact"
-              className="ms-3 bg-gold hover:bg-gold-light text-navy text-sm font-bold px-5 py-2 rounded-md transition-colors"
+              className="ms-3 bg-lime hover:bg-lime-dark text-navy text-sm font-bold px-5 py-2 rounded-md transition-colors"
             >
               {t('nav.contact')}
             </Link>
@@ -134,7 +134,7 @@ export default function Header() {
               <button
                 onClick={() => lang !== 'ar' && toggle()}
                 className={`px-3 py-1.5 text-xs font-medium transition-all ${
-                  lang === 'ar' ? 'bg-gold text-navy' : 'text-white/60 hover:text-white'
+                  lang === 'ar' ? 'bg-lime text-navy' : 'text-white/60 hover:text-white'
                 }`}
               >
                 <span className="hidden sm:inline">العربية</span>
@@ -143,7 +143,7 @@ export default function Header() {
               <button
                 onClick={() => lang !== 'en' && toggle()}
                 className={`px-3 py-1.5 text-xs font-medium transition-all ${
-                  lang === 'en' ? 'bg-gold text-navy' : 'text-white/60 hover:text-white'
+                  lang === 'en' ? 'bg-lime text-navy' : 'text-white/60 hover:text-white'
                 }`}
               >
                 <span className="hidden sm:inline">English</span>
@@ -178,7 +178,7 @@ export default function Header() {
         <nav
           className="px-4 py-4 space-y-0.5"
           style={{
-            background: 'rgba(0, 5, 32, 0.96)',
+            background: 'rgba(43, 48, 58, 0.99)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
           }}
@@ -229,7 +229,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="block bg-gold text-navy font-bold py-2.5 px-4 rounded-md text-sm text-center"
+              className="block bg-lime text-navy font-bold py-2.5 px-4 rounded-md text-sm text-center"
             >
               {t('nav.contact')}
             </Link>

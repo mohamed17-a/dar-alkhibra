@@ -63,7 +63,7 @@ export default function HomePage() {
         {/* 135° gradient overlay */}
         <div
           className="absolute inset-0 z-10"
-          style={{ background: 'linear-gradient(135deg, rgba(27,43,94,0.95) 0%, rgba(17,29,66,0.82) 55%, rgba(17,29,66,0.45) 100%)' }}
+          style={{ background: 'linear-gradient(135deg, rgba(10,10,10,0.96) 0%, rgba(20,20,20,0.84) 55%, rgba(20,20,20,0.48) 100%)' }}
         />
 
         {/* Content */}
@@ -91,7 +91,7 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3 mb-12">
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 text-sm"
+                  className="inline-flex items-center gap-2 bg-lime hover:bg-lime-dark text-navy font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 text-sm"
                 >
                   {t('hero.cta1')}
                   <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,7 +161,7 @@ export default function HomePage() {
               onClick={() => setSlide(i)}
               aria-label={`Slide ${i + 1}`}
               className={`transition-all duration-300 rounded-full ${
-                i === slide ? 'w-8 h-1.5 bg-gold' : 'w-1.5 h-1.5 hover:opacity-70'
+                i === slide ? 'w-8 h-1.5 bg-lime' : 'w-1.5 h-1.5 hover:opacity-70'
               }`}
               style={{ background: i === slide ? undefined : 'rgba(255,255,255,0.3)' }}
             />
@@ -219,7 +219,7 @@ export default function HomePage() {
           <div className="mt-10 text-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-gold hover:text-navy transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-lime transition-colors"
             >
               {t('services.all')}
               <svg className="w-4 h-4 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -274,7 +274,7 @@ export default function HomePage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 text-sm"
+              className="inline-flex items-center gap-2 bg-lime hover:bg-lime-dark text-navy font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 text-sm"
             >
               {t('common.contactus')}
             </Link>

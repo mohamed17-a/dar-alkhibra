@@ -103,7 +103,7 @@ export default function InsightsPage() {
       <section className="bg-navy pt-36 pb-20 relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(135deg, rgba(0,5,32,1) 0%, rgba(17,29,66,0.8) 100%)' }}
+          style={{ background: 'linear-gradient(135deg, rgba(5,5,5,1) 0%, rgba(20,20,20,0.85) 100%)' }}
         />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-gold/60 text-xs font-medium uppercase tracking-[0.2em] mb-5">
@@ -181,10 +181,10 @@ export default function InsightsPage() {
                 {/* Decorative panel */}
                 <div
                   className="hidden lg:flex lg:col-span-2 items-center justify-center p-10"
-                  style={{ background: 'rgba(0,5,32,0.03)' }}
+                  style={{ background: 'rgba(195,212,0,0.04)' }}
                 >
                   <div className="text-center">
-                    <p className="text-[8rem] font-bold leading-none" style={{ color: 'rgba(0,5,32,0.06)' }}>
+                    <p className="text-[8rem] font-bold leading-none" style={{ color: 'rgba(195,212,0,0.10)' }}>
                       {lang === 'ar' ? '١' : '01'}
                     </p>
                     <div className="w-12 h-0.5 bg-lime mx-auto mt-2" />
@@ -220,7 +220,7 @@ export default function InsightsPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {gridArticles.map((article) => (
-                <div key={article.id} className="group bg-white rounded-md p-8 shadow-ambient hover:shadow-[0_10px_40px_rgba(0,5,32,0.08)] transition-all duration-300 flex flex-col">
+                <div key={article.id} className="group bg-white rounded-md p-8 shadow-ambient hover:shadow-[0_10px_40px_rgba(0,0,0,0.10)] transition-all duration-300 flex flex-col">
                   <div className="flex items-center justify-between mb-5">
                     <span
                       className="inline-block text-xs font-medium uppercase tracking-[0.12em] text-gold px-3 py-1 rounded-md"
@@ -279,7 +279,7 @@ export default function InsightsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-bold px-7 py-3.5 rounded-md text-sm transition-colors"
+            className="inline-flex items-center gap-2 bg-lime hover:bg-lime-dark text-navy font-bold px-7 py-3.5 rounded-md text-sm transition-colors"
           >
             {lang === 'ar' ? 'احجز استشارة' : 'Book a Consultation'}
           </Link>

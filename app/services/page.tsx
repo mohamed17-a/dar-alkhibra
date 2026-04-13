@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import PageHero from '@/components/PageHero'
+import ServiceCard from '@/components/ServiceCard'
 import { useLang } from '@/context/LanguageContext'
 
 const auditIcon = (
@@ -119,27 +120,14 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((svc, i) => (
-              <div key={i} className="group bg-white rounded-3xl p-8 border border-gray-100 hover:border-lime/30 shadow-sm hover:shadow-xl hover:shadow-lime/10 transition-all duration-300 flex flex-col">
-                <div className="w-14 h-14 bg-navy/5 group-hover:bg-navy rounded-2xl flex items-center justify-center mb-6 transition-colors">
-                  <div className="text-navy group-hover:text-lime transition-colors">{svc.icon}</div>
-                </div>
-                <h3 className="text-lg font-bold text-navy mb-3">{svc.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed mb-5 flex-grow">{svc.desc}</p>
-                <ul className="space-y-2.5 mb-6">
-                  {svc.highlights.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2.5 text-sm text-gray-500">
-                      <span className="w-1.5 h-1.5 rounded-full bg-lime mt-1.5 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <Link href={svc.href} className="inline-flex items-center gap-2 text-sm font-semibold text-gold hover:text-navy transition-colors mt-auto">
-                  {t('services.more')}
-                  <svg className="w-4 h-4 rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
+              <ServiceCard
+                key={i}
+                href={svc.href}
+                title={svc.title}
+                description={svc.desc}
+                icon={svc.icon}
+                highlights={svc.highlights}
+              />
             ))}
           </div>
 
@@ -155,7 +143,7 @@ export default function ServicesPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 text-sm"
+              className="inline-flex items-center gap-2 bg-lime hover:bg-lime-dark text-navy font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5 text-sm"
             >
               {t('common.contactus')}
             </Link>

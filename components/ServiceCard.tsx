@@ -38,7 +38,7 @@ export default function ServiceCard({ href, title, description, icon, highlights
 
       <Link
         href={href}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-gold hover:text-navy transition-colors group/link mt-auto"
+        className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-lime transition-colors group/link mt-auto"
       >
         {t('services.more')}
         <svg

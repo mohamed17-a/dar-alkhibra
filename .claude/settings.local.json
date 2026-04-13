@@ -9,7 +9,15 @@
       "Bash(mkdir:*)",
       "Bash(xargs sed:*)",
       "Bash(do sed:*)",
-      "Bash(mkdir -p \"D:/FE projects/dar-alkhibra/public/hero\" && cp \"/c/Users/moham/Downloads/pexels-artbovich-7534168.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/office-1.jpg\" && cp \"/c/Users/moham/Downloads/pexels-artbovich-7534234.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/office-2.jpg\" && cp \"/c/Users/moham/Downloads/pexels-artbovich-7534172.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/office-3.jpg\" && echo \"Done\")"
+      "Bash(mkdir -p \"D:/FE projects/dar-alkhibra/public/hero\" && cp \"/c/Users/moham/Downloads/pexels-artbovich-7534168.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/office-1.jpg\" && cp \"/c/Users/moham/Downloads/pexels-artbovich-7534234.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/office-2.jpg\" && cp \"/c/Users/moham/Downloads/pexels-artbovich-7534172.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/office-3.jpg\" && echo \"Done\")",
+      "Bash(grep -E \"\\\\.\\(tsx|ts|css|json|js|mjs\\)$\")",
+      "Bash(npx tsc:*)",
+      "Bash(npx next:*)",
+      "Bash(cp \"C:/Users/moham/Downloads/pexels-ekaterina-bolovtsova-6077091.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/hero-law.jpg\")",
+      "Bash(cp \"C:/Users/moham/Downloads/pexels-rdne-7580754.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/hero-business.jpg\")",
+      "Bash(cp \"C:/Users/moham/Downloads/pexels-mindaugas-u-546542-1313534.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/building-1.jpg\")",
+      "Bash(cp \"C:/Users/moham/Downloads/pexels-mat-236007123-12587420.jpg\" \"D:/FE projects/dar-alkhibra/public/hero/building-2.jpg\")",
+      "WebFetch(domain:www.bakertillyeg.com)"
     ]
   }
 }

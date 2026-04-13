@@ -1,36 +1,36 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-navy: #1A3A6B;
-  --color-navy-dark: #122B52;
-  --color-navy-light: #265494;
+  --color-navy: #1A1A1A;
+  --color-navy-dark: #0A0A0A;
+  --color-navy-light: #2C2C2C;
   --color-gold: #C9A84C;
   --color-gold-light: #e0c270;
   --color-gold-dark: #a88730;
-  --color-lime: #d1ec51;
-  --color-lime-dark: #b8d43a;
-  --color-warm-white: #FAFAF8;
-  --color-cream: #F5F0E8;
+  --color-lime: #C3D400;
+  --color-lime-dark: #A8B800;
+  --color-warm-white: #FFFFFF;
+  --color-cream: #EEF3F5;
   --font-sans: var(--font-cairo);
 }
 
 /* Glow utilities */
 .glow-lime {
-  box-shadow: 0 0 24px rgba(209, 236, 81, 0.25), 0 0 6px rgba(209, 236, 81, 0.15);
+  box-shadow: 0 0 24px rgba(195, 212, 0, 0.40), 0 0 6px rgba(195, 212, 0, 0.22);
 }
 .glow-lime-sm {
-  box-shadow: 0 0 12px rgba(209, 236, 81, 0.2);
+  box-shadow: 0 0 12px rgba(195, 212, 0, 0.28);
 }
 .glow-gold {
   box-shadow: 0 0 24px rgba(201, 168, 76, 0.35), 0 0 6px rgba(201, 168, 76, 0.2);
 }
 .text-glow-lime {
-  text-shadow: 0 0 18px rgba(209, 236, 81, 0.6);
+  text-shadow: 0 0 18px rgba(195, 212, 0, 0.65);
 }
 
 :root {
-  --background: #FAFAF8;
-  --foreground: #1A3A6B;
+  --background: #FFFFFF;
+  --foreground: #1A1A1A;
 }
 
 * {
@@ -62,4 +62,5 @@ html[dir="ltr"] {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: #C3D400; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #A8B800; }

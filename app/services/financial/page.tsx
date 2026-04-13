@@ -112,7 +112,7 @@ export default function FinancialPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-navy font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-lime hover:bg-lime-dark text-navy font-bold px-8 py-4 rounded-full transition-all hover:-translate-y-0.5"
             >
               {t('common.contactus')}
             </Link>

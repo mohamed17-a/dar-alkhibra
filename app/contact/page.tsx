@@ -150,7 +150,7 @@ export default function ContactPage() {
                         type="text"
                         required
                         className="w-full rounded-md px-4 py-3 text-sm focus:outline-none transition-colors text-navy"
-                        style={{ background: '#f5f5dc', border: 'none' }}
+                        style={{ background: '#F5F5F5', border: 'none' }}
                         placeholder={lang === 'ar' ? 'أدخل اسمك الكامل' : 'Enter your full name'}
                       />
                     </div>
@@ -159,7 +159,7 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         className="w-full rounded-md px-4 py-3 text-sm focus:outline-none transition-colors text-navy"
-                        style={{ background: '#f5f5dc', border: 'none' }}
+                        style={{ background: '#F5F5F5', border: 'none' }}
                         placeholder="01xxxxxxxxx"
                         dir="ltr"
                       />
@@ -171,7 +171,7 @@ export default function ContactPage() {
                     <input
                       type="email"
                       className="w-full rounded-md px-4 py-3 text-sm focus:outline-none transition-colors text-navy"
-                      style={{ background: '#f5f5dc', border: 'none' }}
+                      style={{ background: '#F5F5F5', border: 'none' }}
                       placeholder="example@email.com"
                       dir="ltr"
                     />
@@ -181,7 +181,7 @@ export default function ContactPage() {
                     <label className="block text-xs font-medium text-navy/60 uppercase tracking-[0.1em] mb-2">{t('contact.form.service')}</label>
                     <select
                       className="w-full rounded-md px-4 py-3 text-sm focus:outline-none transition-colors text-navy"
-                      style={{ background: '#f5f5dc', border: 'none' }}
+                      style={{ background: '#F5F5F5', border: 'none' }}
                     >
                       <option value="">{lang === 'ar' ? '— اختر الخدمة —' : '— Select a service —'}</option>
                       {serviceOptions.map((opt) => (
@@ -196,7 +196,7 @@ export default function ContactPage() {
                       rows={5}
                       required
                       className="w-full rounded-md px-4 py-3 text-sm focus:outline-none transition-colors text-navy resize-none"
-                      style={{ background: '#f5f5dc', border: 'none' }}
+                      style={{ background: '#F5F5F5', border: 'none' }}
                       placeholder={lang === 'ar' ? 'اكتب رسالتك هنا...' : 'Write your message here...'}
                     />
                   </div>
