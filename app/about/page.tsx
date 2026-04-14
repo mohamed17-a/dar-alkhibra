@@ -140,8 +140,8 @@ export default function AboutPage() {
               },
               {
                 nameAr: 'إسلام عصام النادي', nameEn: 'Islam Essam Elnady',
-                titleAr: 'المستشار', titleEn: 'Consultant',
-                credentialsAr: [], credentialsEn: [],
+                titleAr: 'المستشار القانوني', titleEn: 'Legal Consultant',
+                credentialsAr: ['المحامي بالاستئناف'], credentialsEn: ['Arbitration Lawyer'],
                 img: null,
               },
             ].map((member, i) => (
